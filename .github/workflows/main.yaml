@@ -66,3 +66,4 @@ jobs:
                   name: release-${{ matrix.os }}
                   path: |
                       src-tauri/target/release/pomodoro*
+                      src-tauri/target/release/bundle/
