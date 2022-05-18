@@ -1,14 +1,20 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			// default options are shown
+			pages: 'src-tauri/target/frontend-build',
+			assets: 'src-tauri/target/frontend-build',
+			precompress: true,
+		}),
+		prerender: {
+			default: true
+		}
 	}
 };
 
